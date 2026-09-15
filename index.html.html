@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncoil — Neck & Shoulder Heat Relief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F2ED;
+    --ink:#182420;
+    --ink-soft:#4A554F;
+    --ember:#BF5B2E;
+    --ember-dark:#9C4A24;
+    --sage:#6E8577;
+    --sage-pale:#DDE4DD;
+    --line:#C9CCC3;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--ink);
+    font-weight:600;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .narrow{max-width:640px;}
+
+  /* NAV */
+  .nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 24px;max-width:1080px;margin:0 auto;
+  }
+  .nav .mark{font-family:'Fraunces',serif;font-size:22px;font-weight:700;letter-spacing:-0.01em;}
+  .nav .mark span{color:var(--ember);}
+  .nav a.buy{
+    background:var(--ink);color:var(--paper);
+    padding:10px 20px;border-radius:2px;text-decoration:none;
+    font-size:14px;font-weight:500;
+  }
+
+  /* HERO */
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    padding:36px 24px 64px;
+    max-width:1080px;margin:0 auto;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.4rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .hero .lede{
+    margin-top:20px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero .price-row{
+    margin-top:30px;
+    display:flex;align-items:baseline;gap:14px;
+  }
+  .hero .price{font-family:'Fraunces',serif;font-size:32px;font-weight:700;}
+  .hero .was{color:var(--ink-soft);text-decoration:line-through;font-size:16px;}
+  .cta{
+    display:inline-block;margin-top:22px;
+    background:var(--ember);color:var(--white);
+    padding:16px 30px;border:none;border-radius:2px;
+    font-size:16px;font-weight:600;font-family:'Work Sans',sans-serif;
+    cursor:pointer;text-decoration:none;
+    transition:background .15s ease;
+  }
+  .cta:hover{background:var(--ember-dark);}
+  .hero .fine{margin-top:12px;font-size:13px;color:var(--ink-soft);}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:4/5;
+    background:linear-gradient(155deg,#20302A 0%,#182420 100%);
+    border-radius:2px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-art svg{width:72%;}
+  .glow{
+    position:absolute;width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle, rgba(191,91,46,0.35), transparent 70%);
+    top:-40px;right:-60px;
+  }
+
+  /* PAIN STRIP */
+  .strip{
+    background:var(--ink);color:var(--paper);
+    padding:54px 24px;
+  }
+  .strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .strip h2{color:var(--paper);font-size:1.7rem;max-width:16ch;}
+  .strip p{color:#C7CDC5;font-size:16px;max-width:42ch;}
+
+  /* HOW IT WORKS */
+  section.how{padding:70px 24px;}
+  .how h2{font-size:1.9rem;max-width:14ch;}
+  .steps{
+    margin-top:38px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);
+  }
+  .step{
+    padding:26px 22px 26px 0;
+    border-right:1px solid var(--line);
+  }
+  .step:last-child{border-right:none;}
+  .step .num{font-family:'Fraunces',serif;color:var(--ember);font-size:15px;font-weight:600;}
+  .step h3{margin-top:10px;font-size:1.1rem;}
+  .step p{margin-top:8px;color:var(--ink-soft);font-size:15px;}
+
+  /* BENEFITS */
+  section.benefits{padding:20px 24px 70px;}
+  .benefits .grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border-top:1px solid var(--line);
+  }
+  .benefit{
+    display:flex;gap:16px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .benefit:nth-child(odd){padding-right:30px;border-right:1px solid var(--line);}
+  .benefit:nth-child(even){padding-left:30px;}
+  .benefit .dot{
+    flex-shrink:0;width:8px;height:8px;border-radius:50%;
+    background:var(--sage);margin-top:9px;
+  }
+  .benefit h3{font-size:1.05rem;font-weight:600;font-family:'Work Sans',sans-serif;}
+  .benefit p{color:var(--ink-soft);font-size:14.5px;margin-top:4px;}
+
+  /* TESTIMONIAL */
+  .testimonial{
+    background:var(--sage-pale);
+    padding:60px 24px;
+  }
+  .testimonial .wrap{max-width:640px;}
+  .testimonial blockquote{
+    margin:0;font-family:'Fraunces',serif;font-size:1.5rem;
+    line-height:1.4;font-weight:400;
+  }
+  .testimonial cite{
+    display:block;margin-top:18px;font-style:normal;
+    font-size:14px;color:var(--ink-soft);
+  }
+
+  /* FINAL CTA */
+  .final{padding:80px 24px 100px;text-align:center;}
+  .final h2{font-size:2rem;max-width:20ch;margin:0 auto;}
+  .final .lede{color:var(--ink-soft);margin-top:14px;max-width:44ch;margin-left:auto;margin-right:auto;}
+  .final .cta{margin-top:28px;}
+
+  footer{
+    padding:28px 24px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding-top:16px;}
+    .hero-art{order:-1;aspect-ratio:16/10;}
+    .strip .wrap{grid-template-columns:1fr;gap:18px;}
+    .steps{grid-template-columns:1fr;}
+    .step{border-right:none;border-bottom:1px solid var(--line);padding:22px 0;}
+    .benefits .grid{grid-template-columns:1fr;}
+    .benefit:nth-child(odd){padding-right:0;border-right:none;}
+    .benefit:nth-child(even){padding-left:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="mark">Uncoil<span>.</span></div>
+  <a class="buy" href="#buy">Get yours — $39</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Your neck has been holding your whole day.</h1>
+    <p class="lede">Uncoil is a wearable heat wrap built for the ache that shows up after hours at a screen — tight shoulders, a stiff neck, that dull pull at the base of your skull.</p>
+    <div class="price-row">
+      <span class="price">$39</span>
+      <span class="was">$68</span>
+    </div>
+    <div>
+      <a class="cta" href="#buy">Relieve it tonight</a>
+    </div>
+    <p class="fine">Ships in 2 sizes · 90-day comfort guarantee</p>
+  </div>
+  <div class="hero-art">
+    <div class="glow"></div>
+    <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 30 C60 15 80 5 100 5 C120 5 140 15 140 30 L140 70 C140 95 120 110 100 110 C80 110 60 95 60 70 Z" fill="#EDE7DA"/>
+      <path d="M55 60 C40 60 30 75 30 95 C30 130 55 155 90 160" stroke="#BF5B2E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M145 60 C160 60 170 75 170 95 C170 130 145 155 110 160" stroke="#BF5B2E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <circle cx="90" cy="160" r="7" fill="#F1F2ED"/>
+      <circle cx="110" cy="160" r="7" fill="#F1F2ED"/>
+      <path d="M85 45 Q100 55 115 45" stroke="#182420" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.35"/>
+    </svg>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <h2>Painkillers mask it. Stretching helps for ten minutes.</h2>
+    <p>Neither one reaches the actual muscle. Uncoil uses graduated heat and gentle compression to relax the tissue itself — the same principle physical therapists use, worn under a hoodie during your normal day.</p>
+  </div>
+</section>
+
+<section class="how wrap">
+  <h2>Three minutes to on.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">01</div>
+      <h3>Wrap it around</h3>
+      <p>Adjustable strap sits across the shoulders and base of the neck. No buckles, no fuss.</p>
+    </div>
+    <div class="step">
+      <div class="num">02</div>
+      <h3>Pick your heat</h3>
+      <p>Three settings, one button. Warms up in under a minute, holds steady for hours.</p>
+    </div>
+    <div class="step">
+      <div class="num">03</div>
+      <h3>Keep working</h3>
+      <p>Slim enough to wear through a work call. Rechargeable — no cords to trip on.</p>
+    </div>
+  </div>
+</section>
+
+<section class="benefits wrap">
+  <div class="grid">
+    <div class="benefit"><div class="dot"></div><div><h3>4-hour battery</h3><p>A full charge outlasts your workday.</p></div></div>
+    <div class="benefit"><div class="dot"></div><div><h3>Machine-washable cover</h3><p>Removable sleeve, heating core stays dry.</p></div></div>
+    <div class="benefit"><div class="dot"></div><div><h3>Two sizes</h3><p>Fits most builds — sized at checkout.</p></div></div>
+    <div class="benefit"><div class="dot"></div><div><h3>Auto shut-off</h3><p>Powers down after 20 minutes, every time.</p></div></div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="wrap">
+    <blockquote>"I wear it during my afternoon calls now. By 5pm my shoulders aren't up by my ears anymore."</blockquote>
+    <cite>— Placeholder review, swap in a real one before launch</cite>
+  </div>
+</section>
+
+<section class="final wrap" id="buy">
+  <h2>Give your neck the rest of the day off.</h2>
+  <p class="lede">Order today, ships within 48 hours. If it doesn't ease your tension in 90 days, send it back for a full refund.</p>
+  <a class="cta" href="#" id="buy-link">Get Uncoil — $39</a>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Uncoil</span>
+  <span>Shipping &amp; returns · Contact · Privacy</span>
+</footer>
+
+</body>
+</html>
